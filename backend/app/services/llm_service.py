@@ -1,38 +1,48 @@
-
 import os
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
-
+from openai import OpenAI
 from app.schemas.campaign import CampaignStrategy
 
 load_dotenv()
 
+api_key = os.getenv("OPENROUTER_API_KEY")
 
+if not api_key:
+    raise ValueError("OPENROUTER_API_KEY is missing from .env")
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=api_key
+)
 
 def generate_response(prompt: str):
 
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            system_instruction="""
-            You are an expert digital marketing strategist.
+    response = client.chat.completions.create(
+        model="openrouter/free",
+        messages=[
+            {
+                "role": "system",
+                "content": """
+                You are an expert digital marketing strategist.
 
-            Generate practical advertising campaign strategies.
-            Follow the requested output structure.
-            Keep the total budget allocation equal to
-            the user's specified budget.
-            """,
-            response_mime_type="application/json",
-            response_schema=CampaignStrategy
-        )
+                Generate practical advertising campaign strategies.
+
+                Return ONLY valid JSON with these fields:
+                - summary: string
+                - recommended_platforms: list of strings
+                - budget_allocation: list of objects containing
+                  platform, amount, and reason
+                - ad_copy: list of strings
+
+                Do not include Markdown code fences.
+                """
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        response_format={"type": "json_object"}
     )
 
-    if response.parsed is None:
-        raise ValueError("Gemini did not return a structured response")
-
-    return response.parsed
+    return response.choices[0].message.content

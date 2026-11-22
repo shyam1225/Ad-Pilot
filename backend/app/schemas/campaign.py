@@ -25,15 +25,26 @@ class CampaignRequest(BaseModel):
     platforms: list[str] = Field(
         min_length=1
     )
-
-class CampaignResponse(BaseModel):
-    message: str
-    campaign_details: CampaignRequest
+class PlatformBudget(BaseModel):
+    platform: str
+    amount: float
+    reason: str 
+    
+class CampaignStrategy(BaseModel):
+    summary: str
+    recommended_platforms: list[str]
+    budget_allocation: list[PlatformBudget]
+    ad_copy: list[str]
 
 class PlatformBudget(BaseModel):
     platform: str
     amount: float
     reason: str
+
+class CampaignResponse(BaseModel):
+    message: str
+    campaign_details: CampaignRequest
+    strategy: CampaignStrategy
 
 
 class CampaignStrategy(BaseModel):
