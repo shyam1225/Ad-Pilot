@@ -1,74 +1,96 @@
-
 .campaign-page {
-  max-width: 1100px;
+  max-width: 900px;
 }
 
 .back-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: none;
+  background: transparent;
   border: none;
-  color: #7654e8;
+  color: #94a3b8;
   cursor: pointer;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
   font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: #c084fc;
 }
 
 .form-heading {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .form-heading h1 {
-  font-size: 28px;
-  margin: 13px 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 12px 0 8px;
+  letter-spacing: -0.5px;
 }
 
 .form-heading p {
-  color: #9295a8;
+  color: #94a3b8;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .campaign-form {
-  background: white;
-  border: 1px solid #ececf3;
-  border-radius: 14px;
-  padding: 28px;
-  max-width: 760px;
+  background: #121520;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
-  margin-bottom: 23px;
+  margin-bottom: 22px;
 }
 
 .form-group > label {
   display: block;
   font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  color: #cbd5e1;
+  margin-bottom: 8px;
 }
 
 .form-group input:not([type="checkbox"]),
 .form-group select {
   width: 100%;
-  padding: 13px;
-  border: 1px solid #dedee9;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0b0d14;
+  color: #f1f5f9;
+  border-radius: 9px;
   font-size: 14px;
   outline: none;
-  background: white;
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #475569;
+}
+
+.form-group select option {
+  background: #121520;
+  color: #f1f5f9;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #7654e8;
-  box-shadow: 0 0 0 3px #7654e81a;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
 }
 
 .field-hint {
-  color: #9295a8;
+  color: #64748b;
   font-size: 12px;
-  margin: -3px 0 13px;
+  margin: -2px 0 12px;
 }
 
 .platform-grid {
@@ -80,26 +102,38 @@
 .platform-option {
   display: flex !important;
   align-items: center;
-  gap: 9px;
-  padding: 12px;
-  border: 1px solid #ececf3;
-  border-radius: 8px;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #0b0d14;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: #94a3b8;
   font-size: 13px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.platform-option:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #f8fafc;
 }
 
 .platform-option input {
-  accent-color: #7654e8;
+  accent-color: #8b5cf6;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 .generate-btn {
   width: 100%;
   padding: 14px;
   border: none;
-  border-radius: 9px;
-  background: #7654e8;
-  color: white;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -107,49 +141,69 @@
   justify-content: center;
   align-items: center;
   gap: 9px;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35);
+  transition: all 0.2s ease;
+}
+
+.generate-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.5);
 }
 
 .generate-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
 }
 
 .error-message {
-  color: #b42318;
-  background: #fef3f2;
-  padding: 13px;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 12px 14px;
   border-radius: 8px;
   margin-bottom: 18px;
   font-size: 13px;
 }
 
+/* Results section */
 .result-card {
-  margin-top: 28px;
-  background: white;
-  border: 1px solid #e6e1f5;
-  border-radius: 14px;
-  padding: 28px;
-  max-width: 760px;
+  margin-top: 32px;
+  background: #121520;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .success-label {
-  color: #15803d;
+  display: inline-block;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 .result-card h2 {
-  margin: 12px 0;
+  margin: 14px 0 10px;
+  font-size: 22px;
+  color: #f8fafc;
 }
 
 .result-card h3 {
-  margin: 25px 0 12px;
+  margin: 26px 0 14px;
   font-size: 15px;
+  font-weight: 600;
+  color: #cbd5e1;
 }
 
 .result-card > p {
-  color: #666b80;
+  color: #94a3b8;
   line-height: 1.7;
   font-size: 14px;
 }
@@ -157,36 +211,53 @@
 .result-platforms {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
+  gap: 10px;
 }
 
 .result-platforms span {
-  background: #f0ecff;
-  color: #6947d5;
-  padding: 8px 12px;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #d8b4fe;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .allocation-row {
-  padding: 13px 0;
-  border-bottom: 1px solid #eeeef3;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 8px;
+  gap: 6px;
+}
+
+.allocation-row strong {
+  color: #f1f5f9;
+  font-size: 14px;
+}
+
+.allocation-row span {
+  color: #a855f7;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .allocation-row p {
   grid-column: 1 / -1;
-  color: #85899b;
+  color: #64748b;
   font-size: 13px;
 }
 
 .ad-copy {
-  padding: 12px;
-  margin-top: 9px;
-  background: #f7f6fc;
-  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 10px;
+  background: #0b0d14;
+  border-left: 3px solid #8b5cf6;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .spin {
@@ -201,11 +272,10 @@
 
 @media (max-width: 600px) {
   .platform-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
-
   .campaign-form,
   .result-card {
-    padding: 18px;
+    padding: 20px;
   }
 }
