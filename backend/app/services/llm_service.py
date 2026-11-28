@@ -1,24 +1,17 @@
 import os
 from dotenv import load_dotenv
-from openai import OpenAI
+from app.core.llm import get_openai_client, get_api_key, DEFAULT_MODEL
 from app.schemas.campaign import CampaignStrategy
 
 load_dotenv()
 
-api_key = os.getenv("OPENROUTER_API_KEY")
+api_key = get_api_key()
+client = get_openai_client()
 
-if not api_key:
-    raise ValueError("OPENROUTER_API_KEY is missing from .env")
-
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=api_key
-)
 
 def generate_response(prompt: str):
-
     response = client.chat.completions.create(
-        model="openrouter/free",
+        model=DEFAULT_MODEL,
         messages=[
             {
                 "role": "system",

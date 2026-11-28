@@ -211,7 +211,7 @@ nav {
   color: #c4b5fd;
   font-size: 14px;
   line-height: 1.5;
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .welcome-icon {
@@ -265,7 +265,7 @@ nav {
 
 .stat-card h2 {
   margin-top: 18px;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   color: #f8fafc;
 }
@@ -288,6 +288,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .section-heading h2 {
@@ -316,6 +317,134 @@ nav {
 }
 
 .view-btn:hover {
+  color: #c084fc;
+}
+
+/* Campaigns Grid */
+.campaigns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.campaign-card {
+  background: #0b0d14;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.campaign-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.campaign-obj-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.campaign-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.campaign-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 4px;
+}
+
+.campaign-audience {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.campaign-budget-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.budget-label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.budget-figure {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4ade80;
+}
+
+.campaign-excerpt {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.campaign-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+.campaign-platforms-pills {
+  display: flex;
+  gap: 4px;
+}
+
+.campaign-platforms-pills span {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.inspect-btn {
+  background: transparent;
+  border: none;
+  color: #a855f7;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.inspect-btn:hover {
   color: #c084fc;
 }
 

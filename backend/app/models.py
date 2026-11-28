@@ -11,5 +11,14 @@ class Campaign(Base):
     budget = Column(Numeric(12, 2), nullable=False)
     objective = Column(String(50), nullable=False)
     platforms = Column(JSON, nullable=False)
+    
+    # Legacy / consolidated strategy deliverable
     strategy = Column(JSON, nullable=True)
+
+    # Modular Five-Agent deliverables (backward-compatible nullable JSON fields)
+    product_intelligence = Column(JSON, nullable=True)
+    plan = Column(JSON, nullable=True)
+    creatives = Column(JSON, nullable=True)
+    compliance = Column(JSON, nullable=True)
+
     created_at = Column(DateTime(timezone=True), server_default=func.now())
